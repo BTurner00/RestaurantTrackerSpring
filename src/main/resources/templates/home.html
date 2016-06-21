@@ -25,10 +25,7 @@
 </form>
 
 <br>
-<form action="/delete-restaurant" method="post">
-    <input type="number" name="id" placeholder="#"/>
-    <button type="submit">Delete</button>
-</form>
+
 
 
 
@@ -39,7 +36,12 @@ Click on entries to edit:
 <ol>
     {{#restaurants}}
 
-    <a href="/edit?id={{id}}"> <li> ID:{{id}} - <b>{{name}}</b> - {{location}} - {{rating}} / 5 - {{comment}}</li></a>
+    <li> ID:{{id}} - <b>{{name}}</b> - {{location}} - {{rating}} / 5 - {{comment}}
+        <form action="/delete-restaurant" method="post" style ="display: inline-block">
+            <input type="hidden" name="id" value="{{id}}"/>
+            <button type="submit">Delete</button>
+        </form>
+    </li>
     <input type="hidden" name="editid" value="{{id}}"/>
 
     {{/restaurants}}
