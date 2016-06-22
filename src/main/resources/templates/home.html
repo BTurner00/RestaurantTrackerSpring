@@ -9,6 +9,12 @@
     <button type="submit">Logout</button>
 </form>
 
+
+<form action="/" method="get">
+    <input type="text" name="search" placeholder="Search Location"/>
+    <button type="submit">Search</button>
+</form>
+
 <form action="/create-restaurant" method="post">
     <input type="text" name="name" placeholder="Name"/>
     <input type="text" name="location" placeholder="Location"/>
@@ -36,12 +42,12 @@ Click on entries to edit:
 <ol>
     {{#restaurants}}
 
-    <li> ID:{{id}} - <b>{{name}}</b> - {{location}} - {{rating}} / 5 - {{comment}}
+    <a href="/edit?id={{id}}"> <li> ID:{{id}} - <b>{{name}}</b> - {{location}} - {{rating}} / 5 - {{comment}}
         <form action="/delete-restaurant" method="post" style ="display: inline-block">
             <input type="hidden" name="id" value="{{id}}"/>
             <button type="submit">Delete</button>
         </form>
-    </li>
+    </li></a>
     <input type="hidden" name="editid" value="{{id}}"/>
 
     {{/restaurants}}
